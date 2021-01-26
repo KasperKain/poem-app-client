@@ -1,0 +1,21 @@
+.Header {
+  width: 100%;
+  background-color: rgb(32, 32, 32);
+}
+
+.Header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.Header-Links {
+  display: flex;
+  gap: 2rem;
+}
+
+.Header * {
+  color: white;
+}

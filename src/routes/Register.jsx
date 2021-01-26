@@ -1,9 +1,9 @@
 import React from 'react';
 const Register = () => {
   return (
-    <div className='Register'>
+    <section className='Register'>
       <div>REGISTER</div>
-    </div>
+    </section>
   );
 };
 

@@ -3,10 +3,9 @@ import AddPoem from '../components/AddPoem/AddPoem';
 
 const Creator = () => {
   return (
-    <div className='Creator'>
-      <h1>ok</h1>
+    <section className='Creator'>
       <AddPoem />
-    </div>
+    </section>
   );
 };
 

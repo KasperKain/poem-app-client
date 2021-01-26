@@ -1,9 +1,9 @@
 import React from 'react';
 const Home = () => {
   return (
-    <div className='Home'>
+    <section className='Home'>
       <div>HOME</div>
-    </div>
+    </section>
   );
 };
 

@@ -1,0 +1,19 @@
+.Poem-Title-Container.mood_joy {
+  background-color: blue;
+}
+
+.Poem-Title-Container.mood_peace {
+  background-color: rgb(33, 251, 99);
+}
+
+.Poem-Title-Container.mood_sorrow {
+  background-color: rgb(255, 17, 0);
+}
+
+.Poem-Title-Container.mood_anger {
+  background-color: rgb(255, 255, 255);
+}
+
+.Poem-Title-Container.mood_fear {
+  background-color: rgb(112, 112, 112);
+}
