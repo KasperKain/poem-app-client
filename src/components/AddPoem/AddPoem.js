@@ -28,7 +28,7 @@ const AddPoem = () => {
     };
 
     fetchData();
-  }, []);
+  }, [history, id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

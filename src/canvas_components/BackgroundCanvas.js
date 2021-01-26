@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './BackgroundCanvas.css';
 
 // Canvas code
@@ -7,22 +7,6 @@ const BackgroundCanvas = (props) => {
   const canvas = useRef(null);
   const contextRef = useRef(null);
 
-  const animate = () => {
-    requestAnimationFrame(animate);
-    contextRef.current.clearRect(
-      0,
-      0,
-      canvas.current.width,
-      canvas.current.height
-    );
-
-    for (let i = 0; i < Particles.length; i++) {
-      Particles[i].draw();
-      Particles[i].update();
-    }
-  };
-
-  const Particles = [];
   function Particle(x, y, xVel, yVel, r) {
     this.x = x;
     this.y = y;
@@ -58,20 +42,6 @@ const BackgroundCanvas = (props) => {
     };
   }
 
-  const createNewParticle = () => {
-    const amount = 120;
-    for (let i = 0; i < amount; i++) {
-      const r = Math.random() * 0.5 + 3;
-      const x = Math.random() * (canvas.current.width - r * 2) + r;
-      const y = Math.random() * (canvas.current.height - r * 2) + r;
-      const xVel = (Math.random() - 0.2) * 6;
-      const yVel = (Math.random() - 0.2) * 3;
-
-      let newParticle = new Particle(x, y, xVel, yVel, r);
-      Particles.push(newParticle);
-    }
-  };
-
   useEffect(() => {
     canvas.current.style.width = '100%';
     canvas.current.style.height = '100%';
@@ -80,6 +50,36 @@ const BackgroundCanvas = (props) => {
 
     const context = canvas.current.getContext('2d');
     contextRef.current = context;
+
+    const Particles = [];
+    const createNewParticle = () => {
+      const amount = 120;
+      for (let i = 0; i < amount; i++) {
+        const r = Math.random() * 0.5 + 3;
+        const x = Math.random() * (canvas.current.width - r * 2) + r;
+        const y = Math.random() * (canvas.current.height - r * 2) + r;
+        const xVel = (Math.random() - 0.2) * 6;
+        const yVel = (Math.random() - 0.2) * 3;
+
+        let newParticle = new Particle(x, y, xVel, yVel, r);
+        Particles.push(newParticle);
+      }
+    };
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      contextRef.current.clearRect(
+        0,
+        0,
+        canvas.current.width,
+        canvas.current.height
+      );
+
+      for (let i = 0; i < Particles.length; i++) {
+        Particles[i].draw();
+        Particles[i].update();
+      }
+    };
 
     createNewParticle();
     animate();

@@ -25,7 +25,7 @@ const PoemList = (props) => {
       }
     };
     fetchData();
-  }, []);
+  }, [setPoems, setStyles]);
 
   const handleDelete = async (id) => {
     try {
