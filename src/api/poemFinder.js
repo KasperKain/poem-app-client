@@ -1,7 +1,8 @@
 import axios from 'axios';
+const { API_ENDPOINT } = require('../config');
 
 const base = axios.create({
-  baseURL: 'http://localhost:8000/poems',
+  baseURL: `${API_ENDPOINT}/poems`,
 });
 
 export const getPoems = () => base.get('/');

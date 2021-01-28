@@ -1,8 +1,9 @@
 import React from 'react';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
 const Register = () => {
   return (
     <section className='Register'>
-      <div>REGISTER</div>
+      <RegisterForm />
     </section>
   );
 };
