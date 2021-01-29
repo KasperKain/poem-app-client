@@ -1,8 +1,9 @@
 import React from 'react';
+import Welcome from '../components/Welcome/Welcome';
 const Home = () => {
   return (
     <section className='Home'>
-      <div>HOME</div>
+      <Welcome />
     </section>
   );
 };

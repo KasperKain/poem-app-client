@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 const links = [
-  { name: 'WEB TITLE', path: '/' },
-  { name: 'Poems', path: '/poems' },
-  { name: 'Create', path: '/poems/create' },
+  { name: 'POEM KEEPER', path: '/' },
+  { name: 'My Poems', path: '/poems' },
+  { name: 'New Poem', path: '/poems/create' },
 ];
 
 const Header = () => {

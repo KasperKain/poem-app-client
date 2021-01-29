@@ -1,0 +1,105 @@
+.PoemDetails {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Poem-Content-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+}
+
+.Poem-Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Poem-Text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.Poem-Text p {
+  font-size: 1.5rem;
+  color: rgb(211, 211, 211);
+  white-space: pre-wrap;
+}
+
+.Heart-Image-Container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.PoemDetails.expanded {
+  animation: expand 0.9s forwards ease-out;
+}
+
+.Poem-Button-Container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Heart-Image-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Heart-Image {
+  width: 60%;
+  height: auto;
+}
+
+.temp_cold {
+  background-color: rgba(1, 8, 15, 0.973);
+}
+
+.temp_cool {
+  background-color: rgba(4, 1, 15, 0.973);
+}
+
+.temp_warm {
+  background-color: rgba(12, 1, 9, 0.973);
+}
+
+.temp_hot {
+  background-color: rgba(14, 1, 1, 0.973);
+}
+
+@keyframes expand {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  @media only screen and (min-height: 600px) {
+    .Poem-Content {
+      flex-direction: row;
+    }
+  }
+}

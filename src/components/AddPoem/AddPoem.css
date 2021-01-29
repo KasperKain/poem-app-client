@@ -1,10 +1,111 @@
 .AddPoem {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  gap: 70px;
+  gap: 1rem;
 
   width: 100%;
   height: 100%;
+  padding: 20px;
+}
+
+.Form-Body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Form-Body label {
+  font-size: 2rem;
+}
+
+.Form-Body textarea {
+  width: 90%;
+  height: 90%;
+  min-width: 90%;
+  min-height: 90%;
+  max-width: 90%;
+  max-height: 90%;
+  font-size: 1.2rem;
+}
+
+.Form-Options {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Form-Control {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+input,
+select {
+  width: 90%;
+  margin: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  @media only screen and (min-height: 400px) {
+    .AddPoem {
+      flex-direction: row;
+    }
+
+    .Form-Options {
+      height: 80%;
+    }
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .Form-Control {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+}
+
+@media only screen and (min-height: 900px) {
+  .AddPoem label {
+    font-size: 2rem;
+  }
+
+  .AddPoem textarea,
+  .AddPoem input,
+  .AddPoem select,
+  .AddPoem button {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-height: 700px) {
+  @media only screen and (min-width: 700px) {
+    .AddPoem label {
+      font-size: 2rem;
+    }
+
+    .AddPoem textarea,
+    .AddPoem input,
+    .AddPoem select,
+    .AddPoem button {
+      font-size: 1.6rem;
+    }
+  }
 }

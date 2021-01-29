@@ -2,7 +2,7 @@ import axios from 'axios';
 const { API_ENDPOINT } = require('../config');
 
 const base = axios.create({
-  baseURL: `${API_ENPOINT}/syles`,
+  baseURL: `${API_ENDPOINT}/styles`,
 });
 
 export const getStyles = () => base.get('/');

@@ -1,12 +1,13 @@
 .Header {
   width: 100%;
-  background-color: rgb(32, 32, 32);
+  padding: 10px;
 }
 
 .Header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 90%;
   margin: auto;
 }

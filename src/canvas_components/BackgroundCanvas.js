@@ -53,7 +53,7 @@ const BackgroundCanvas = (props) => {
 
     const Particles = [];
     const createNewParticle = () => {
-      const amount = 120;
+      const amount = 30;
       for (let i = 0; i < amount; i++) {
         const r = Math.random() * 0.5 + 3;
         const x = Math.random() * (canvas.current.width - r * 2) + r;
@@ -83,8 +83,7 @@ const BackgroundCanvas = (props) => {
 
     createNewParticle();
     animate();
-  }, []);
-
+  }, [canvas]);
   return <canvas className='BackgroundCanvas' ref={canvas} />;
 };
 

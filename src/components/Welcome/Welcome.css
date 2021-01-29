@@ -1,0 +1,23 @@
+.Welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  height: 100%;
+}
+
+.Welcome h2 {
+  font-size: 3rem;
+}
+
+.Welcome .Intro {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.A-List-Of-Things-You-Can-Do-Or-Whatever {
+  font-size: 1.2rem;
+  text-align: left;
+}

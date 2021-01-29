@@ -1,0 +1,17 @@
+.ValidationMessage h3 {
+  animation: blink 5s forwards infinite linear;
+}
+
+@keyframes blink {
+  0% {
+    color: rgb(160, 3, 3);
+  }
+
+  50% {
+    color: white;
+  }
+
+  100% {
+    color: rgb(160, 3, 3);
+  }
+}

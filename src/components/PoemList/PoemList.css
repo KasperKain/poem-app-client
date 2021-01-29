@@ -1,36 +1,11 @@
 .PoemList {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
-  padding: 20px;
-
-  animation: fade-in 2s forwards ease-in;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    transform: translateY(-2%);
-  }
-  30% {
-    transform: translateY(2%);
-  }
-  38% {
-    transform: translateY(-1%);
-  }
-  44% {
-    transform: translateY(1%);
-  }
-  48% {
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 1;
-  }
+  height: 100%;
+  padding: 2rem;
 }

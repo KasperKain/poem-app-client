@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { createPoem } from '../../api/poemFinder';
-import { createStyle } from '../../api/styleFinder';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { getPoem, updatePoem } from '../../api/poemFinder';
+import { getStyle, updateStyle } from '../../api/styleFinder';
 import ValidationMessage from '../ValidationMessage/ValidationMessage';
-import './AddPoem.css';
-const AddPoem = () => {
+
+import '../AddPoem/AddPoem.css';
+const EditPoem = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [mood, setMood] = useState('');
   const [temperature, setTemperature] = useState('');
   const [message, setMessage] = useState('');
+  const { id } = useParams();
   const history = useHistory();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const poem = await getPoem(id);
+      const style = await getStyle(poem.data.style);
+      setTitle(poem.data.title);
+      setBody(poem.data.body);
+      setMood(style.data.head_style);
+      setTemperature(style.data.body_style);
+    };
+
+    fetchData();
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,12 +46,12 @@ const AddPoem = () => {
       if (errMessage.length > 1) {
         setMessage(errMessage);
       } else {
-        const style = await createStyle({
+        const poem = await getPoem(id);
+        const style = await updateStyle(poem.data.style, {
           head_style: mood,
           body_style: temperature,
         });
-        await createPoem({ title, body, style: style.data.id });
-
+        await updatePoem(poem.data.id, { title, body, style: style.data.id });
         history.push('/poems');
       }
     } catch (err) {
@@ -46,10 +61,10 @@ const AddPoem = () => {
 
   // UI COMPONENT
   return (
-    <form className='AddPoem' onSubmit={handleSubmit}>
+    <form className='EditPoem AddPoem' onSubmit={handleSubmit}>
       <div className='Form-Body'>
         <ValidationMessage message={message} />
-        <label htmlFor='body'>POEM</label>
+        <label for='body'>POEM</label>
         <textarea
           name='body'
           id='body'
@@ -62,7 +77,7 @@ const AddPoem = () => {
       </div>
       <div className='Form-Options'>
         <div className='Form-Control'>
-          <label htmlFor='title'>Title</label>
+          <label>Title</label>
           <input
             name='title'
             id='title'
@@ -74,7 +89,7 @@ const AddPoem = () => {
           />
         </div>
         <div className='Form-Control'>
-          <label htmlFor='mood'>Mood</label>
+          <label>Mood</label>
           <select
             name='mood'
             id='mood'
@@ -90,7 +105,7 @@ const AddPoem = () => {
           </select>
         </div>
         <div className='Form-Control'>
-          <label htmlFor='temp'>Temperature</label>
+          <label>Temperature</label>
           <select
             name='temp'
             id='temp'
@@ -111,4 +126,4 @@ const AddPoem = () => {
   );
 };
 
-export default AddPoem;
+export default EditPoem;
