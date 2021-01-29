@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { deleteStyle } from '../../api/styleFinder';
 import { deletePoem } from '../../api/poemFinder';
 import { PoemDetailsContext } from '../../context/poemDetailsContext';
@@ -64,7 +64,6 @@ const PoemDetails = (props) => {
           className={`Poem-Content-Container ${poemDetails.style.body_style}`}
         >
           <button
-            aria-level={1}
             className='Exit'
             onClick={() =>
               setExpanded(expanded === 'closed' ? 'expanded' : 'closed')
