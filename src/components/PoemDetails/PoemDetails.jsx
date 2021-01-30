@@ -41,9 +41,8 @@ const PoemDetails = (props) => {
 
   const handleDelete = async (id, styleId) => {
     try {
-      console.log('deleting');
-      await deleteStyle(styleId);
       await deletePoem(id);
+      await deleteStyle(styleId);
       setPoems(poems.filter((poem) => poem.id !== id));
       setExpanded('closed');
     } catch (err) {
@@ -58,7 +57,6 @@ const PoemDetails = (props) => {
 
   const generateExpandedPage = () => {
     if (expanded === 'expanded') {
-      console.log(poemDetails);
       return (
         <div
           className={`Poem-Content-Container ${poemDetails.style.body_style}`}

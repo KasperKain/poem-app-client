@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getPoems } from '../../api/poemFinder';
-import { getStyles } from '../../api/styleFinder';
 import { PoemContext } from '../../context/poemContext';
 import { PoemDetailsContext } from '../../context/poemDetailsContext';
 import { StyleContext } from '../../context/styleContext';
@@ -20,7 +19,6 @@ const PoemList = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await getStyles().then((results) => setStyles(results.data));
         await getPoems().then((results) => setPoems(results.data));
       } catch (err) {
         console.error(err);
@@ -34,7 +32,6 @@ const PoemList = (props) => {
   };
 
   const toggleExpanded = (props) => {
-    console.log('expanding');
     const poemStyle = Object.assign(
       {},
       ...styles.filter((style) => style.id === props.style)
@@ -46,7 +43,6 @@ const PoemList = (props) => {
       poemID: props.id,
       styleID: props.style,
     });
-    console.log(props);
     setExpanded(expanded === 'closed' ? 'expanded' : 'closed');
   };
 

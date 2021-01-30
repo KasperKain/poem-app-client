@@ -5,12 +5,11 @@ import EditPoem from '../components/EditPoem/EditPoem';
 
 const Creator = () => {
   const { id } = useParams();
+
   const generateEditOrCreate = () => {
     if (id) {
-      console.log('editing');
       return <EditPoem />;
     } else {
-      console.log();
       return <AddPoem />;
     }
   };

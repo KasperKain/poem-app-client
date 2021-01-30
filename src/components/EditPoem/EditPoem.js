@@ -17,11 +17,11 @@ const EditPoem = () => {
   useEffect(() => {
     const fetchData = async () => {
       const poem = await getPoem(id);
-      const style = await getStyle(poem.data.style);
-      setTitle(poem.data.title);
-      setBody(poem.data.body);
-      setMood(style.data.head_style);
-      setTemperature(style.data.body_style);
+      const style = await getStyle(poem.data[0].style);
+      setTitle(poem.data[0].title);
+      setBody(poem.data[0].body);
+      setMood(style.data[0].head_style);
+      setTemperature(style.data[0].body_style);
     };
 
     fetchData();
@@ -47,11 +47,15 @@ const EditPoem = () => {
         setMessage(errMessage);
       } else {
         const poem = await getPoem(id);
-        const style = await updateStyle(poem.data.style, {
+        const style = await updateStyle(poem.data[0].style, {
           head_style: mood,
           body_style: temperature,
         });
-        await updatePoem(poem.data.id, { title, body, style: style.data.id });
+        await updatePoem(poem.data[0].id, {
+          title,
+          body,
+          style: style.id,
+        });
         history.push('/poems');
       }
     } catch (err) {
