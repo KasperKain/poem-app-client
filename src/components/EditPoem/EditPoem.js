@@ -17,11 +17,11 @@ const EditPoem = () => {
   useEffect(() => {
     const fetchData = async () => {
       const poem = await getPoem(id);
-      const style = await getStyle(poem.data[0].style);
-      setTitle(poem.data[0].title);
-      setBody(poem.data[0].body);
-      setMood(style.data[0].head_style);
-      setTemperature(style.data[0].body_style);
+      const style = await getStyle(poem.data.style);
+      setTitle(poem.data.title);
+      setBody(poem.data.body);
+      setMood(style.data.head_style);
+      setTemperature(style.data.body_style);
     };
 
     fetchData();
@@ -47,11 +47,11 @@ const EditPoem = () => {
         setMessage(errMessage);
       } else {
         const poem = await getPoem(id);
-        const style = await updateStyle(poem.data[0].style, {
+        const style = await updateStyle(poem.data.style, {
           head_style: mood,
           body_style: temperature,
         });
-        await updatePoem(poem.data[0].id, {
+        await updatePoem(poem.data.id, {
           title,
           body,
           style: style.id,
@@ -68,7 +68,7 @@ const EditPoem = () => {
     <form className='EditPoem AddPoem' onSubmit={handleSubmit}>
       <div className='Form-Body'>
         <ValidationMessage message={message} />
-        <label for='body'>POEM</label>
+        <label htmlFor='body'>POEM</label>
         <textarea
           name='body'
           id='body'
@@ -81,7 +81,7 @@ const EditPoem = () => {
       </div>
       <div className='Form-Options'>
         <div className='Form-Control'>
-          <label>Title</label>
+          <label htmlFor='title'>Title</label>
           <input
             name='title'
             id='title'
@@ -93,7 +93,7 @@ const EditPoem = () => {
           />
         </div>
         <div className='Form-Control'>
-          <label>Mood</label>
+          <label htmlFor='mood'>Mood</label>
           <select
             name='mood'
             id='mood'
@@ -109,7 +109,7 @@ const EditPoem = () => {
           </select>
         </div>
         <div className='Form-Control'>
-          <label>Temperature</label>
+          <label htmlFor='temp'>Temperature</label>
           <select
             name='temp'
             id='temp'

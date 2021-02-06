@@ -9,6 +9,10 @@ html {
   font-family: 'Cormorant Garamond', serif;
 }
 
+body {
+  background-color: black;
+}
+
 h1 {
   font-size: 3.2rem;
 }

@@ -6,7 +6,7 @@ import Creator from '../routes/Creator';
 import Header from '../components/Header/Header';
 import { PoemContextProvider } from '../context/poemContext';
 import { StyleContextProvider } from '../context/styleContext';
-import BackgroundCanvas from '../canvas_components/BackgroundCanvas';
+import BackgroundCanvas from '../BackgroundCanvas/BackgroundCanvas';
 import './App.css';
 import { PoemDetailsContextProvider } from '../context/poemDetailsContext';
 
