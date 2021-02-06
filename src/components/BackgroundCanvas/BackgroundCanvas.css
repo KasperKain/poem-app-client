@@ -1,9 +1,0 @@
-.BackgroundCanvas {
-  z-index: -10;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.2;
-  background-color: black;
-}

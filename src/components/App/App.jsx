@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../Header/Header';
-import BackgroundCanvas from '../BackgroundCanvas/BackgroundCanvas';
 
 import Home from '../../routes/Home';
 import Creator from '../../routes/Creator';
@@ -27,7 +26,6 @@ const App = () => {
                   <Route exact path='/poems/edit/:id' component={Creator} />
                 </Switch>
               </main>
-              <BackgroundCanvas />
             </Router>
           </StyleContextProvider>
         </PoemContextProvider>
