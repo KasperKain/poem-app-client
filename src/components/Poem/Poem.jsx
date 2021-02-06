@@ -25,4 +25,13 @@ Poem.propTypes = {
   style: propTypes.object,
 };
 
+Poem.defaultProps = {
+  id: 0,
+  title: 'err',
+  body: 'err',
+  onDelete: function () {},
+  onEdit: function () {},
+  style: { head_style: 'null', body_style: 'null' },
+};
+
 export default Poem;

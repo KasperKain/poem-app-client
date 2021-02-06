@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from '../routes/Home';
-import Poems from '../routes/Poems';
-import Creator from '../routes/Creator';
-import Header from '../components/Header/Header';
-import { PoemContextProvider } from '../context/poemContext';
-import { StyleContextProvider } from '../context/styleContext';
+import Header from '../Header/Header';
 import BackgroundCanvas from '../BackgroundCanvas/BackgroundCanvas';
+
+import Home from '../../routes/Home';
+import Creator from '../../routes/Creator';
+import Poems from '../../routes/Poems';
+import { PoemContextProvider } from '../../context/poemContext';
+import { StyleContextProvider } from '../../context/styleContext';
 import './App.css';
-import { PoemDetailsContextProvider } from '../context/poemDetailsContext';
+import { PoemDetailsContextProvider } from '../../context/poemDetailsContext';
 
 const App = () => {
   return (
