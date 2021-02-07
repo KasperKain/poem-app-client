@@ -1,4 +1,4 @@
-.ValidationMessage h3 {
+.ValidationMessage p {
   animation: blink 5s forwards infinite linear;
 }
 

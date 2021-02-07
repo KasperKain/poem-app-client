@@ -4,7 +4,7 @@ import './Welcome.css';
 const Welcome = () => {
   return (
     <div className='Welcome'>
-      <h2>Welcome</h2>
+      <h1>Welcome</h1>
       <p className='Intro'>
         This is currently just a demo. This application will be updated
         regularly until full release. <br /> <br />A FEW THINGS YOU CAN DO RIGHT

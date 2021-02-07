@@ -10,8 +10,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5rem;
-  padding: 2rem;
+  min-height: 3rem;
+  padding: 1.3rem;
 
   background-color: rgba(0, 0, 0, 0.479);
   border-image-source: url('../../images/PoemBorder.svg');
@@ -23,8 +23,24 @@
   cursor: pointer;
 }
 
+.Poem h1 {
+  font-size: 1rem;
+}
+
 .Poem :focus {
   border-image: none;
   border-color: rgba(255, 255, 255, 0.616);
   box-shadow: 0 0 9px 1px white;
+}
+
+@media only screen and (min-width: 500px) {
+  @media only screen and (min-height: 300px) {
+    .Poem h1 {
+      font-size: 1.4rem;
+    }
+
+    .Poem-Title-Container {
+      padding: 2rem;
+    }
+  }
 }

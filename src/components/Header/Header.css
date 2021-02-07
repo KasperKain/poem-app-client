@@ -17,3 +17,9 @@
   gap: 2rem;
   font-size: 1.1rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .Header-Title h1 {
+    font-size: 1.8rem;
+  }
+}

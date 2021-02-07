@@ -38,7 +38,7 @@ const EditPoem = () => {
         errMessage = 'Poem Content must be atleast 3 characters';
       } else if (mood.length < 1 || temperature.length < 1) {
         console.log(mood.length);
-        errMessage = 'Please select Mood and Temerature';
+        errMessage = 'Please select Mood and Temperature';
       } else {
         errMessage = '';
       }

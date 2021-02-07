@@ -4,7 +4,7 @@ import './ValidationMessage.css';
 const ValidationMessage = (props) => {
   return (
     <div className='ValidationMessage'>
-      <h3>{props.message}</h3>
+      <p>{props.message}</p>
     </div>
   );
 };

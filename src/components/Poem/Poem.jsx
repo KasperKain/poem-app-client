@@ -10,7 +10,7 @@ const Poem = (props) => {
         className={'Poem-Title-Container'}
         onClick={props.onToggle}
       >
-        <h3>{props.title.toUpperCase()}</h3>
+        <h1>{props.title.toUpperCase()}</h1>
       </button>
     </li>
   );
