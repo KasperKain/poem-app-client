@@ -72,9 +72,9 @@ const PoemDetails = (props) => {
           <div className='Poem-Content'>
             <div className='Poem-Text'>
               <h1>{poemDetails.title}</h1>
+              <div className='Heart-Image-Container'>{generateMoodImage()}</div>
               <p>{poemDetails.body}</p>
             </div>
-            <div className='Heart-Image-Container'>{generateMoodImage()}</div>
           </div>
           <div className='Poem-Button-Container'>
             <button

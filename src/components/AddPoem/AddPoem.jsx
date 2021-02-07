@@ -48,7 +48,6 @@ const AddPoem = () => {
   return (
     <form className='AddPoem' onSubmit={handleSubmit}>
       <div className='Form-Body'>
-        <ValidationMessage message={message} />
         <label htmlFor='body'>POEM</label>
         <textarea
           name='body'
@@ -59,6 +58,7 @@ const AddPoem = () => {
           onChange={(e) => setBody(e.target.value)}
           required
         />
+        <ValidationMessage message={message} />
       </div>
       <div className='Form-Options'>
         <div className='Form-Control'>
