@@ -2,6 +2,7 @@ import React from 'react';
 import './Welcome.css';
 
 const Welcome = () => {
+  // Just a message to the user, Slapped onto the landing page like a sticky note
   return (
     <div className='Welcome'>
       <h1>Welcome</h1>

@@ -6,6 +6,7 @@ import ValidationMessage from '../ValidationMessage/ValidationMessage';
 
 import '../AddPoem/AddPoem.css';
 const EditPoem = () => {
+  // States
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [mood, setMood] = useState('');
@@ -15,6 +16,8 @@ const EditPoem = () => {
   const history = useHistory();
 
   useEffect(() => {
+    // Once mounted, Query the database for a poem with the id that matches params, Then update all user input fields with that poems data
+
     const fetchData = async () => {
       const poem = await getPoem(id);
       const style = await getStyle(poem.data.style);
@@ -30,12 +33,13 @@ const EditPoem = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validation
     try {
       let errMessage = '';
       if (title.length < 3 || title.length > 50) {
         errMessage = 'Title must be between 3 and 50 characters';
       } else if (body.length < 3) {
-        errMessage = 'Poem Content must be atleast 3 characters';
+        errMessage = 'Poem Content must be at least 3 characters';
       } else if (mood.length < 1 || temperature.length < 1) {
         console.log(mood.length);
         errMessage = 'Please select Mood and Temperature';
@@ -46,6 +50,7 @@ const EditPoem = () => {
       if (errMessage.length > 1) {
         setMessage(errMessage);
       } else {
+        // If validated, Update current poem and push to database
         const poem = await getPoem(id);
         const style = await updateStyle(poem.data.style, {
           head_style: mood,
@@ -56,7 +61,7 @@ const EditPoem = () => {
           body,
           style: style.id,
         });
-        history.push('/poems');
+        history.push('/poems'); // Go back to poem list
       }
     } catch (err) {
       console.error(err);

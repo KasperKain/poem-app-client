@@ -10,6 +10,7 @@ import Poem from '../Poem/Poem';
 import './PoemList.css';
 
 const PoemList = (props) => {
+  // States and context
   const history = useHistory();
   const { styles, setStyles } = useContext(StyleContext);
   const { poems, setPoems } = useContext(PoemContext);
@@ -18,6 +19,7 @@ const PoemList = (props) => {
   );
 
   useEffect(() => {
+    // Once mounted, Retrieve poems and styles from database and update appropriate context.
     const fetchData = async () => {
       try {
         await getPoems().then((results) => setPoems(results.data));
@@ -29,10 +31,12 @@ const PoemList = (props) => {
     fetchData();
   }, [setPoems, setStyles]);
 
+  // Redirect to edit page with poem id
   const handleEdit = (id) => {
     history.push(`poems/create/${id}`);
   };
 
+  // Set the poem details expanded state to 'open', and update it's context with the clicked poems information.
   const toggleExpanded = (props) => {
     const poemStyle = styles.filter((style) => style.id === props.id);
     setPoemDetails({
@@ -45,7 +49,8 @@ const PoemList = (props) => {
     setExpanded(expanded === 'closed' ? 'expanded' : 'closed');
   };
 
-  const generetePoem = () => {
+  // Generate a poem component
+  const generatePoem = () => {
     return (
       poems &&
       styles &&
@@ -64,7 +69,7 @@ const PoemList = (props) => {
     );
   };
 
-  return <ul className='PoemList'>{generetePoem()}</ul>;
+  return <ul className='PoemList'>{generatePoem()}</ul>;
 };
 
 export default PoemList;

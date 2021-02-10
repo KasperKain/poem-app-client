@@ -5,6 +5,7 @@ import { createStyle } from '../../api/styleFinder';
 import ValidationMessage from '../ValidationMessage/ValidationMessage';
 import './AddPoem.css';
 const AddPoem = () => {
+  // States
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [mood, setMood] = useState('');
@@ -15,12 +16,13 @@ const AddPoem = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validation
     try {
       let errMessage = '';
       if (title.length < 3 || title.length > 50) {
         errMessage = 'Title must be between 3 and 50 characters';
       } else if (body.length < 3) {
-        errMessage = 'Poem Content must be atleast 3 characters';
+        errMessage = 'Poem Content must be at least 3 characters';
       } else if (mood.length < 1 || temperature.length < 1) {
         console.log(mood.length);
         errMessage = 'Please select Mood and Temperature';
@@ -31,13 +33,14 @@ const AddPoem = () => {
       if (errMessage.length > 1) {
         setMessage(errMessage);
       } else {
+        // If validated, Create a new poem and style based on user input and push to database
         const style = await createStyle({
           head_style: mood,
           body_style: temperature,
         });
         await createPoem({ title, body, style: style.data.id });
 
-        history.push('/poems');
+        history.push('/poems'); // Go back to poem list
       }
     } catch (err) {
       console.error(err);

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
+// Links
 const links = [
   { name: 'POEM KEEPER', path: '/' },
   { name: 'My Poems', path: '/poems' },
@@ -10,21 +11,24 @@ const links = [
 
 const Header = () => {
   return (
+    // UI COMPONENT
     <header className='Header'>
       <nav>
         <div className='Header-Title'>
-          <h1>
-            <Link to={links[0].path}>{links[0].name}</Link>
-          </h1>
+          {/* Generate home link and make it the title of the page */}
+          <Link to={links[0].path}>
+            <h1>{links[0].name}</h1>
+          </Link>
         </div>
 
-        <div className='Header-Links'>
+        <ul className='Header-Links'>
+          {/* Generate remaining links */}
           {links.slice(1).map((link, index) => (
-            <Link key={index} to={link.path}>
-              <li>{link.name}</li>
-            </Link>
+            <li key={index}>
+              <Link to={link.path}>{link.name}</Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </nav>
     </header>
   );
